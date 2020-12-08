@@ -1,0 +1,298 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>와알못-와인검색</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script>
+	function error_check1() {
+		var a = document.getElementById("dang1").value;
+		var b = document.getElementById("san1").value;
+		var c = document.getElementById("body1").value;
+		var d = document.getElementById("price1").value;
+		if (a ==""|b ==""|c ==""|d =="") {
+			alert('값을 모두 지정해주세요');
+		} else {
+			document.form1.action="winenara_search";
+		    document.form1.submit();
+		}
+	}
+	
+	function error_check2() {
+		var a = document.getElementById("dang2").value;
+		var b = document.getElementById("san2").value;
+		var c = document.getElementById("body2").value;
+		var d = document.getElementById("tannin2").value;
+		var e = document.getElementById("price2").value;
+		if (a ==""|b ==""|c ==""|d ==""|e =="") {
+			alert('값을 모두 지정해주세요');
+		} else {
+			document.form2.action="wine21_search";
+		    document.form2.submit();
+		}
+	}
+
+
+	</script>
+	<style>
+		.navbar {
+
+ 			margin-bottom: 10;
+			background-color: #B81A44;
+			  z-index: 9999;
+			  border: 0;
+ 			 font-size: 14px !important;
+ 			 line-height: 1.42857143 !important;
+  			letter-spacing: 4px;
+ 			 border-radius: 0;
+			}
+
+		.navbar li a, .navbar .navbar-brand {
+  			color: white !important;
+			}
+
+		.navbar-nav li a:hover, .navbar-nav li.active a {
+ 			 color: #B81A44 !important;
+			  background-color: #fff !important;
+			}
+
+		.navbar-default .navbar-toggle {
+ 			 border-color: transparent;
+ 			 color: #fff !important;
+ 			}
+ 		.align-center { text-align: center; }
+
+ 		.btn-group{color: black; margin:50; height: 3em}
+		img {display:block; margin:auto;}
+		
+
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-default navbar-fixed-top">
+ 		<div class="container">
+   			<div class="navbar-header">
+      			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        			<span class="icon-bar"></span>
+     			 	<span class="icon-bar"></span>
+   				    <span class="icon-bar"></span>
+			     </button>
+      			<a class="navbar-brand" href="#home">Waal'mot<span class="glyphicon glyphicon-heart"></span><span class="glyphicon glyphicon-heart"></span></a>
+    		</div>
+   			<div class="collapse navbar-collapse" id="myNavbar">
+      			<ul class="nav navbar-nav navbar-right">
+			        <li><a href="#search1">와인나라 검색</a></li>
+			        <li><a href="#search2">와인21 검색</a></li>
+			        <li><a href="#label">라벨로 검색</a></li>
+			      </ul>
+		    </div>
+		 </div>
+	</nav>
+
+	<br><br><br><br><br>
+	<h2 class="align-center">🍷 와인을 잘 모르는 당신을 위한 추천 🍷</h2>
+	<h3 class="align-center">어려운 용어나 전문적인 말 대신, 맛과 가격으로 취향의 와인을 선별해드립니다</h3>
+	<h3 class="align-center">Waal'Mot</h3>
+	<div class="container">
+		<div class="carousel slide" id="myCarousel" data-ride="carousel">
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+				<li data-target="#myCarousel" data-slide-to="2"></li>
+				<li data-target="#myCarousel" data-slide-to="3"></li>
+				<li data-target="#myCarousel" data-slide-to="4"></li>
+			</ol>
+			<div class="carousel-inner">
+				<div class="item active">
+					<img src="{% static 'images/wine1.jpg' %}" width="1200" height="500" alt="">
+				</div>
+				<div class="item">
+					<img src="{% static 'images/wine2.jpg' %}" width="1200" height="500" alt="">
+				</div>
+				<div class="item">
+					<img src="{% static 'images/wine3.jpg' %}" width="1200" height="500" alt="">
+				</div>
+				<div class="item">
+					<img src="{% static 'images/wine4.jpg' %}" width="1200" height="500" alt="">
+				</div>
+				<div class="item">
+					<img src="{% static 'images/wine5.jpg' %}" width="1200" height="500" alt="">
+				</div>
+			</div>
+
+
+			<a href="#myCarousel" class="left carousel-control" data-slide="prev">
+				<span class="glyphicon glyphicon-chevron-left"></span>
+				<span class="sr-only">previous</span>
+			</a>
+			<a href="#myCarousel" class="right carousel-control" data-slide='next'>
+				<span class="glyphicon glyphicon-chevron-right"></span>
+				<span class="sr-only">next</span>
+			</a>
+		</div>
+	</div>
+	<br><br><hr>   
+	
+
+
+	<div style="margin-left:160; margin-top: 80; color:#E32054; padding-left:100px" id='search1' class="col-sm-8">	
+
+		<h2>와인나라에서 검색</h2>
+		</br>
+		<h4 class="align-center" style="color: #A3173C">420여가지의 와인의 데이터가 있는 와인나라는 바로 구매까지 할 수 있는 장점이 있습니다.</h4>
+		<h4 class="align-center" style="color: #A3173C">원하는 당도, 산도, 바디감, 가격대를 기준으로 와인을 추천해주고 구매 사이트를 알려드립니다.</h4>
+	</div>
+	<div class="col-sm-4" >
+		<img alt="" src="{% static 'images/winenara_logo.png' %}" width="400" height="200" >
+	</div>
+			
+
+	<br>
+	<div style="margin-left:160; margin-top: 80; padding-left:100px">
+	<form method="post" name='form1'>
+	{% csrf_token %}	
+		<span class="btn-group">
+			<select style="width:300px; height:3em" name='dang' id='dang1'>
+				<option value="">당도를 선택해주세요</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+		</span>
+		<span class="btn-group`">
+			<select style="width:300px;height:3em;" name='san' id='san1'>
+				<option value="">산도를 선택해주세요</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+		</span>
+		<span class="btn-group">
+			<select style="width:300px;height:3em;" name='body' id='body1'>
+				<option value="">바디감을 선택해주세요</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+		</span>
+		<span class="btn-group">
+			<select style="width:300px;height:3em;" name='price' id='price1'>
+				<option value="">가격대를 선택해주세요</option>
+				<option value="a">3만원 이하</option>
+				<option value="b">3만원 이상, 7만원 이하</option>
+				<option value="c">7만원 이상, 13만원 이하</option>
+				<option value="d">13만원 이상, 20만원 이하</option>
+				<option value="e">20만원 이상, 30만원 이하</option>
+				<option value="f">30만원 이상</option>
+			</select>
+		</span>
+		<span class="btn-group">
+			<input type="submit"  value="검색하기" style="height:3em"  onclick="error_check1()">
+		</span>
+	</form>
+	
+	<br><br><hr> 
+	<div style="margin-left:160; margin-top: 80; color:#E32054;" id='search2' class="col-sm-7" >	
+		<h2>와인21에서 검색</h2>
+		<br>
+		<h4 class="align-center" style="color: #A3173C"> 와인21은  국내 최대의 와인 관련 데이터베이스를 최다 보유하고 있는 사이트로 <br> 11700여개의 와인 정보를 가지고 있는 장점이 있습니다.</h4>
+		<h4 class="align-center" style="color: #A3173C">원하는 당도, 산도, 바디감, 타닌, 가격대를 기준으로 와인을 추천해주고 상세 정보를 알 수 있는 사이트를 알려드립니다.</h4>
+		<h5 class="align-center">* 타닌(탄닌): 떫은 맛을 내는 성분으로 항산화작용,해독, 소염작용을 가지고 있음</h5>
+	</div>
+	<div class="col-sm-5" style="background-color:#C49BBB; text-align:center; height:213px; padding-top: 50px">
+		<img alt="" src="{% static 'images/wine21_logo.png' %}" width="500" height="100" >
+	</div>
+	
+ 	<form method="post" name="form2">
+ 	{% csrf_token %}
+		<span class="btn-group">
+			<select style="width:300px; height:3em" name='dang' id='dang2'>
+				<option value="">당도를 선택해주세요</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+		</span>
+		<span class="btn-group">
+			<select style="width:300px; height:3em" name='san' id='san2'>
+				<option value="">산도를 선택해주세요</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+		</span>
+		<span class="btn-group">
+			<select style="width:300px; height:3em" name='body' id='body2'>
+				<option value="">바디감을 선택해주세요</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+		</span>
+		<span class="btn-group">
+			<select style="width:300px; height:3em" name='tannin' id='tannin2'>
+				<option value="">타닌을 선택해주세요</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+			</select>
+		</span>
+		<span class="btn-group">
+			<select style="width:300px; height:3em" name='price' id='price2'>
+				<option value="">가격대를 선택해주세요</option>
+				<option value="a">3만원 이하</option>
+				<option value="b">3만원 이상, 7만원 이하</option>
+				<option value="c">7만원 이상, 13만원 이하</option>
+				<option value="d">13만원 이상, 20만원 이하</option>
+				<option value="e">20만원 이상, 35만원 이하</option>
+				<option value="f">35만원 이상</option>
+			</select>
+		</span>
+		<span class="btn-group">
+			<input type="submit"  value="검색하기" style="height:3em" onclick="error_check2()">
+		</span>
+	</form>
+	</div> 
+	<br><br><hr>
+	
+	
+	
+	<div style="margin-left:160; margin-top: 80; color:#E32054; padding-left:100px" id='label' >	
+
+		<h2>라벨로 검색(beta test)</h2>
+		<h4 class="align-center" style="color: #A3173C">와인의 라벨을 최대한 가득 채운 사진을 업로드 해주시면 사진을 통해서 어떤 와인인지 분석해드립니다.</h4>
+		<h4 class="align-center" style="color: #A3173C">와인나라의 와인 이미지 중 가장 유사한 와인을 보여드립니다.</h4>
+		<br />
+		<br />
+		<br />
+		
+		<form action="label_search" method="post" name="form3"  enctype="multipart/form-data"> 
+			{% csrf_token %}
+			<span class="btn-group">
+				<input type="file" name="file" style="height:3em;" >
+			</span>
+			<span class="btn-group">
+				<input type="submit" value="검색하기" style="font-weight:bold" >
+			</span>
+		</form>
+		
+
+</html>

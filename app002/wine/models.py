@@ -1,0 +1,66 @@
+from django.db import models
+
+
+class Winenara(models.Model):
+    idx=models.AutoField(primary_key=True)
+    name=models.CharField(max_length=200)  
+    types=models.CharField(max_length=50)
+    site=models.CharField(max_length=200)
+    manufacturer=models.CharField(max_length=200)   
+    alchol=models.CharField(max_length=50)
+    vintage=models.CharField(max_length=50)
+    grapes=models.CharField(max_length=200)
+    san=models.IntegerField(default=0)
+    dang=models.IntegerField(default=0)
+    body=models.IntegerField(default=0)
+    nation=models.CharField(max_length=50)
+    price=models.IntegerField(default=0)
+    goodsno=models.IntegerField(default=0)
+    
+class Winenara_temp(models.Model):
+    idx=models.IntegerField(primary_key=True)
+    name=models.CharField(max_length=200) 
+    types=models.CharField(max_length=50)
+    site=models.CharField(max_length=200)
+    manufacturer=models.CharField(max_length=200)   
+    alchol=models.CharField(max_length=50)
+    vintage=models.CharField(max_length=50)
+    grapes=models.CharField(max_length=200)
+    san=models.IntegerField(default=0)
+    dang=models.IntegerField(default=0)
+    body=models.IntegerField(default=0)
+    nation=models.CharField(max_length=50)
+    price=models.IntegerField(default=0)
+    goodsno=models.IntegerField(default=0)
+    
+    
+    
+class Wine21(models.Model):
+    idx=models.AutoField(primary_key=True)
+    name=models.CharField(max_length=200)
+    site=models.CharField(max_length=200)  
+    grapes=models.CharField(max_length=200)
+    type=models.CharField(max_length=50)
+    howto=models.CharField(max_length=200)   
+    alchol=models.CharField(max_length=50)
+    dang=models.IntegerField(default=0)
+    san=models.IntegerField(default=0)
+    body=models.IntegerField(default=0)
+    tannin=models.IntegerField(default=0)
+    price=models.IntegerField(default=0)
+    goodsno=models.IntegerField(default=0)
+    
+class Wine21_temp(models.Model):
+    idx=models.IntegerField(primary_key=True)
+    name=models.CharField(max_length=200)
+    site=models.CharField(max_length=200)  
+    grapes=models.CharField(max_length=200)
+    type=models.CharField(max_length=50)
+    howto=models.CharField(max_length=200)   
+    alchol=models.CharField(max_length=50)
+    dang=models.IntegerField(default=0)
+    san=models.IntegerField(default=0)
+    body=models.IntegerField(default=0)
+    tannin=models.IntegerField(default=0)
+    price=models.IntegerField(default=0)
+    goodsno=models.IntegerField(default=0)

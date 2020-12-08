@@ -1,0 +1,110 @@
+{% load static %}
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>와알못 - 라벨 검색</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>
+	.align-center { text-align: center; color:#443894;font-weight: bold;background-color:white; }
+	.background{ background-image:url({% static 'images/winelabel.jpg' %});
+				 background-repeat:no-repeat; 
+				 background-position : top center;
+				 background-size:cover;
+				 margin-top: 10px; 
+				 margin-bottom: 40px;
+				 padding:50px}
+	img{width:350px;hight:1.5em}
+	</style>
+
+</head>
+<body>
+	<div class='background'>
+		
+		<span class="align-center" style="font-size:4em; margin-left:100px">선택한 조건으로 검색 결과</span><br><br>
+		<span class="align-center" style="font-size:2em; margin-left:100px"> 찾으시는 와인의 라벨과 가장 유사한 4종을 보여드립니다.<br> </span>
+		<span class="align-center" style="font-size:2em; margin-left:100px"> 더 많은 정보를 보시려면 사진을 클릭해주세요. </span>
+		<br>
+
+	</div>
+	<div style="height:400">
+		<span style="float:left; margin-left:100" id='link_here1' >
+		 	<a href='' id='img_here1'></a>
+		  
+		</span>
+		<span style="float:left; margin-left:100" id='link_here2' >
+		 	<a href='' id='img_here2'></a>
+		  
+		</span>
+		<span style="float:left; margin-left:100" id='link_here3' >
+		 	<a href='' id='img_here3'></a>
+		  
+		</span>
+		<span style="float:left; margin-left:100" id='link_here4' >
+		 	<a href='' id='img_here4'></a>
+		  
+		</span>
+	</div>
+
+	<script>
+		 var idxx = {{numberidx4}} ;
+		 
+		 var img = document.createElement('img');
+		 document.getElementById("img_here4").href="http://winenara.com/goods/goods_view.php?goodsNo="+idxx;
+				 
+		 img.src = "{% static 'wine_img/' %}"+idxx+".png";
+		 img.id='image4'
+		 img.width='350px'
+		 document.getElementById('img_here4').appendChild(img);
+		 
+	</script>
+	<script>
+		 var idxx = {{numberidx3}} ;
+		
+		 var img = document.createElement('img');
+	
+		 document.getElementById("img_here3").href="http://winenara.com/goods/goods_view.php?goodsNo="+idxx;
+		 
+		 img.src = "{% static 'wine_img/' %}"+idxx+".png";
+		 img.id='image3'
+		 img.width='350px'
+		 document.getElementById('img_here3').appendChild(img);
+		
+	
+		 
+	</script>
+	<script>
+		 var idxx= {{numberidx2}} ;
+		
+		 var img = document.createElement('img');
+		  
+		 document.getElementById("img_here2").href="http://winenara.com/goods/goods_view.php?goodsNo="+idxx;
+		 
+		 img.src = "{% static 'wine_img/' %}"+idxx+".png";
+		 img.id='image2'
+		 img.width='350px'
+		 document.getElementById('img_here2').appendChild(img);
+		 
+	</script>
+	<script>
+		 var idxx = {{numberidx1}} ;
+		 var img = document.createElement('img');
+		 document.getElementById("img_here1").href="http://winenara.com/goods/goods_view.php?goodsNo="+idxx;
+		 
+		 img.src = "{% static 'wine_img/' %}"+idxx+".png";
+		 img.id='image1'
+		 img.width='350px'
+		 document.getElementById('img_here1').appendChild(img);
+
+		 
+	</script>
+	
+
+	<div style="text-align:center;">
+		<button type="button" class="btn btn-outline-info" style="height:3em; font-weight:bold; font-size:1.5em"><a href="/">돌아가기</button>
+	</div>
+
+
+</body>
+</html>

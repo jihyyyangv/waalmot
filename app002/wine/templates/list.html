@@ -1,0 +1,64 @@
+{% load static %}
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>와알못 - 검색결과</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<style>
+	.align-center { text-align: center; color:#443894;font-weight: bold;background-color:white; }
+	.background{ background-image:url({% static 'images/wine_up.jpg' %});
+				 background-repeat:no-repeat; 
+				 background-position : top center;
+				 background-size:cover;
+				 margin-top: 10px; 
+				 margin-bottom: 40px;
+				 padding:50px}
+	</style>
+</head>
+<body>
+	<div class='background'>
+		
+		<span class="align-center" style="font-size:4em; margin-left:100px">선택한 조건으로 검색 결과</span><br><br>
+		<span class="align-center" style="font-size:2em; margin-left:100px">KNN 방식을 통해 원하는 맛과 같은, 혹은 가장 비슷한 와인을 추천해드립니다.</span><br>
+		<span class="align-center" style="font-size:2em; margin-left:100px"> 더 많은 정보를 보거나 구매를 원하시면 와인 이름을 클릭해주세요.</span><br>
+		<span class="align-center" style="font-size:1.5em; margin-left:100px">* 빈티지 : 포도가 수확된 년도</span>
+	</div>
+	<div style="margin:100px">
+	<table class="table table-hover"> 
+		<tr>
+			<th>이름</th>
+			<th>종류</th>
+			<th>생산국</th>
+			<th>제조사</th>
+			<th>도수</th>
+			<th>빈티지</th>
+			<th>포도 품종</th>
+			<th>당도</th>
+			<th>산도</th>
+			<th>바디감</th>
+			<th>가격</th>
+			
+		</tr>
+		{% for row in dto %}
+		
+			<tr align="center">
+				<td><a href="http://winenara.com/goods/goods_view.php?goodsNo={{row.goodsno}}">{{row.name}}</td>
+				<td>{{row.types}}</td>
+				<td>{{row.nation}}</td>
+				<td>{{row.manufacturer}}</td>
+				<td>{{row.alchol}}</td>
+				<td>{{row.vintage}}</td>
+				<td>{{row.grapes}}</td>
+				<td>{{row.dang}}</td>
+				<td>{{row.san}}</td>
+				<td>{{row.body}}</td>
+				<td>{{row.price}}</td>
+			</tr>
+		{% endfor %}
+	</table>
+	</div>
+	<div style="text-align:center;"><button type="button" class="btn btn-outline-info" style="height:3em; font-weight:bold; font-size:1.5em"><a href="/">돌아가기</button></div>
+</body>
+</html>
